@@ -1,0 +1,8 @@
+[package]
+name = "service1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+helper1 = { path = "../../library/helper1" }
+ferris-says = "0.2.0"

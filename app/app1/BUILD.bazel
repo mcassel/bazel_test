@@ -1,0 +1,11 @@
+load("@crate_index//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+rust_binary(
+    name = "app1",
+    srcs = glob(["src/*.rs"]),
+    deps = all_crate_deps() + [
+        "//library/helper1:helper1"
+    ],
+    visibility = ["//visibility:public"]
+)
