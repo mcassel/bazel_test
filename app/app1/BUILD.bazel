@@ -1,4 +1,5 @@
 load("@crate_index//:defs.bzl", "all_crate_deps")
+load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 load("@rules_rust//rust:defs.bzl", "rust_binary")
 
 rust_binary(
@@ -7,5 +8,11 @@ rust_binary(
     deps = all_crate_deps() + [
         "//library/helper1:helper1"
     ],
+    visibility = ["//visibility:public"]
+)
+
+pkg_tar(
+    name = "app1_tar",
+    srcs = [":app1"],
     visibility = ["//visibility:public"]
 )
